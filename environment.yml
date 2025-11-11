@@ -11,4 +11,5 @@ dependencies:
   - plotly
   - pyarrow
   - seaborn
+  - kaggle
 prefix: /home/prof-adept/anaconda3/envs/nyc-airbnb-env
