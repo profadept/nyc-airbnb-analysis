@@ -6,3 +6,5 @@ __pycache__/
 .json
 data/*.csv
 .ipynb_checkpoints/
+figures/
+*.png
