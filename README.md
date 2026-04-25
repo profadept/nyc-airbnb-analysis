@@ -14,7 +14,7 @@ fewest listings of any borough, commands a higher median price than the Bronx,
 volume and price move independently across the NYC market.
 
 - **Room type is the strongest price driver.** Entire home/apartments carry a median
-price of \\$160, sitting \\$115 above shared rooms at $45. Across every borough without
+price of `$160`, sitting `$115` above shared rooms at `$45`. Across every borough without
 exception, room type is a more reliable price signal than location.
 
 - **More listings means less engagement.** Hosts managing larger portfolios generate
