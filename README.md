@@ -1,62 +1,75 @@
-# 🏙️ NYC Airbnb Data Analysis
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Made with Jupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange)
+# NYC Airbnb Market Analysis — 2019
 
-Exploratory Data Analysis of **New York City Airbnb listings**, focusing on pricing, availability, host behavior, and neighborhood patterns across the five boroughs.
+This project analyses the key factors that drive prices across NYC 2019 Airbnb
+listings, examining whether location, room type, or host behaviour is the dominant
+price signal. The dataset covers 48,895 listings spread across five boroughs,
+collected in 2019 and sourced from Kaggle's NYC Airbnb Open Data. The notebook
+walks through data cleaning, exploratory analysis, and three focused questions
+that each challenge assumptions about how the short-term rental market actually works.
 
-## 📊 Project Overview
-This project explores the **NYC Airbnb Open Data** dataset to answer questions about pricing, neighborhood trends, availability, and host behavior. The analysis follows a complete professional workflow suitable for portfolio use.
+## Key Findings
 
-## 🧰 Tools and Libraries
-Python 3.11  
-Pandas, NumPy  
-Matplotlib, Seaborn  
-Jupyter Notebook  
-Conda environment  
+- **Location alone does not determine price.** Staten Island, despite having the
+fewest listings of any borough, commands a higher median price than the Bronx,
+volume and price move independently across the NYC market.
 
-## 🧱 Project Structure
+- **Room type is the strongest price driver.** Entire home/apartments carry a median
+price of \\$160, sitting \\$115 above shared rooms at $45. Across every borough without
+exception, room type is a more reliable price signal than location.
+
+- **More listings means less engagement.** Hosts managing larger portfolios generate
+fewer reviews per listing, the individual attention that drives guest engagement
+does not scale with listing count.
+
+## Project Structure
+
+```
 nyc-airbnb-analysis/
-├── data/  
-├── figures/  
-├── notebooks/  
-│   └── NYC_Airbnb_EDA.ipynb  
-├── environment.yml  
-├── requirements.txt  
-├── .gitignore  
-└── README.md  
+├── data/
+│   ├── AB_NYC_2019.csv
+│   └── AB_NYC_2019.parquet
+├── figures/
+├── notebooks/
+│   └── NYC_Airbnb_EDA.ipynb
+├── scripts/
+│   └── download_data.py
+├── pyproject.toml
+└── README.md
+```
 
-## ⚙️ Setup Instructions
-### Conda
-conda env create -f environment.yml  
-conda activate nyc-airbnb-env  
+## Setup
 
-### pip
-python -m venv venv  
-source venv/bin/activate  
-pip install -r requirements.txt  
+Requires [uv](https://docs.astral.sh/uv/). Clone the repo and sync dependencies:
 
-## 📥 Dataset
-Download from Kaggle:  
-https://www.kaggle.com/datasets/airbnb/new-york-city  
-Place the CSV inside the **data/** folder.
+```bash
+git clone git@github.com:profadept/nyc-airbnb-analysis.git
+cd nyc-airbnb-analysis
+uv sync
+```
 
-## 🔍 EDA Outline
-1. Import & Setup  
-2. Data Overview  
-3. Cleaning & Fixes  
-4. Feature Engineering  
-5. Univariate Analysis  
-6. Bivariate Analysis  
-7. Summary & Insights  
+## Dataset
 
-## 📈 Key Insights
-- Manhattan has the highest price levels.  
-- Brooklyn shows strong listing volume at moderate prices.  
-- Cheaper listings attract more guest reviews.  
-- Host activity varies sharply by portfolio size.  
-- Availability shows seasonal and behavioral patterns.
+Data sourced from [Kaggle — NYC Airbnb Open Data](https://www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data).
 
-## 🧾 License
-MIT License for project code.  
-Dataset licensed by Kaggle and Inside Airbnb.
+Two ways to get it:
+
+**Option 1 — Manual download**
+Create a `data/` folder in the project root, download and unzip from the Kaggle 
+link above, then place `AB_NYC_2019.csv` inside it.
+
+**Option 2 — Download script**
+Place your Kaggle credentials at `~/.kaggle/kaggle.json`, then run:
+
+```bash
+uv run python scripts/download_data.py
+```
+
+Then launch the notebook:
+
+```bash
+uv run jupyter lab
+```
+
+## License
+
+MIT License — project code only. Dataset subject to Kaggle and Inside Airbnb terms.
