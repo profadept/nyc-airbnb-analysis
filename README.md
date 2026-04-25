@@ -54,7 +54,8 @@ Data sourced from [Kaggle — NYC Airbnb Open Data](https://www.kaggle.com/datas
 Two ways to get it:
 
 **Option 1 — Manual download**
-Download and unzip from the Kaggle link above, place `AB_NYC_2019.csv` inside `data/`.
+Create a `data/` folder in the project root, download and unzip from the Kaggle 
+link above, then place `AB_NYC_2019.csv` inside it.
 
 **Option 2 — Download script**
 Place your Kaggle credentials at `~/.kaggle/kaggle.json`, then run:
